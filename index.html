@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTools 工具箱 - 多功能实用工具集合</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 56px;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .tool-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .tool-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .tool-card .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        
+        .directory-structure {
+            background-color: #2c3e50;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .author-note {
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MyTools 工具箱</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tools">工具列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#installation">安装说明</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#structure">目录结构</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">常见问题</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/xhnoob/myTools" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页大图 -->
+    <header class="hero">
+        <div class="container text-center">
+            <h1>MyTools 工具箱</h1>
+            <p class="lead">集成多种实用工具的一站式解决方案，提高您的工作效率</p>
+            <p class="author-note mt-3">作者：道相抖音@慈悲剪辑，技术问题点关注留言</p>
+            <a href="#tools" class="btn btn-light btn-lg mt-3">
+                <i class="fas fa-tools me-2"></i>探索工具
+            </a>
+        </div>
+    </header>
+
+    <!-- 主界面展示 -->
+    <section class="container text-center mb-5">
+        <img src="image/myTools.png" alt="工具箱主界面" class="img-fluid rounded shadow-lg" style="max-width: 90%;">
+    </section>
+
+    <!-- 工具列表 -->
+    <section id="tools" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">包含的工具</h2>
+            <div class="row g-4">
+                <!-- Python版本管理器 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="tool-card card">
+                        <img src="image/python_version_manager.png" alt="Python版本管理器" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Python版本管理器</h5>
+                            <p class="card-text">管理Windows系统中的Python版本和包的图形界面工具，可以扫描系统中安装的Python版本、切换默认版本、管理包和PyPI镜像源。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 环境变量管理器 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="tool-card card">
+                        <img src="image/env_var_manager.png" alt="环境变量管理器" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">环境变量管理器</h5>
+                            <p class="card-text">查看和管理Windows系统环境变量的图形界面工具，可以编辑用户和系统环境变量、管理PATH变量路径，并实时应用更改。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 网络诊断工具 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="tool-card card">
+                        <img src="image/network_diagnostics.png" alt="网络诊断工具" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">网络诊断工具</h5>
+                            <p class="card-text">用于网络测试、IP查询、端口扫描和网络状态分析的图形界面工具，可以查看系统网络配置、执行网络测试、进行IP地址查询和端口扫描。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右键菜单管理器 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="tool-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">右键菜单管理器</h5>
+                            <p class="card-text">用于查看、添加、修改和删除Windows右键菜单项的工具，可以管理文件、目录和桌面右键菜单，轻松自定义Windows上下文菜单。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 格式转换工具 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="tool-card card">
+                        <div class="card-body">
+                            <h5 class="card-title">格式转换工具</h5>
+                            <p class="card-text">多功能文件格式转换工具，支持视频、音频、图片等多种格式的相互转换，包括MP4转GIF、音频格式转换和图片格式转换等功能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统要求 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">系统要求</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fab fa-windows me-2 text-primary"></i>Windows操作系统
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fab fa-python me-2 text-primary"></i>Python 3.6或更高版本
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-th-large me-2 text-primary"></i>tkinter (Python标准库自带)
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded">
+                        <h4>依赖包</h4>
+                        <p>主要依赖包包括：</p>
+                        <ul>
+                            <li>pywin32 - Windows API接口</li>
+                            <li>requests - HTTP请求库</li>
+                            <li>pillow - 图像处理库</li>
+                        </ul>
+                        <p class="mb-0"><small>* 启动脚本会自动安装所需依赖</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 安装和运行 -->
+    <section id="installation" class="section">
+        <div class="container">
+            <h2 class="section-title">安装和运行</h2>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">方法1：直接运行（推荐）</h5>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li>克隆或下载此仓库</li>
+                        <li>双击<code>启动工具箱.bat</code>文件运行
+                            <ul>
+                                <li>此脚本会自动创建虚拟环境并安装所需依赖</li>
+                                <li>首次运行可能需要几分钟时间来设置环境</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>如果需要管理员权限（例如使用环境变量管理器时），请使用<code>管理员启动.bat</code>。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">方法2：使用PowerShell</h5>
+                </div>
+                <div class="card-body">
+                    <p>双击<code>启动工具箱.ps1</code>文件，或在PowerShell中运行：</p>
+                    <pre><code>.\启动工具箱.ps1</code></pre>
+                    <p>此脚本同样会自动设置虚拟环境和安装依赖。</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">方法3：手动设置虚拟环境</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code># 创建虚拟环境
+python -m venv .venv
+
+# 激活虚拟环境（Windows PowerShell）
+.\.venv\Scripts\Activate.ps1
+# 或激活虚拟环境（Windows cmd）
+.\.venv\Scripts\activate.bat
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行工具箱
+python mytools.py</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 目录结构 -->
+    <section id="structure" class="section">
+        <div class="container">
+            <h2 class="section-title">目录结构</h2>
+            <pre class="directory-structure">
+myTools/  # 根目录
+├── mytools.py  # 工具箱主程序
+├── 启动工具箱.bat  # 中文名称的启动脚本
+├── 启动工具箱.ps1  # PowerShell启动脚本
+├── 管理员启动.bat  # 管理员权限启动脚本
+├── python_version_manager/  # Python版本管理器模块
+│   ├── __init__.py
+│   ├── main.py
+│   ├── ui.py
+│   └── utils.py
+├── env_var_manager/  # 环境变量管理器模块
+│   ├── __init__.py
+│   ├── main.py
+│   └── utils.py
+├── network_diagnostics/  # 网络诊断工具模块
+│   ├── __init__.py
+│   ├── main.py
+│   └── utils.py
+├── context_menu_manager/  # 右键菜单管理器模块
+│   ├── __init__.py
+│   ├── main.py
+│   └── utils.py
+├── format_converter/  # 格式转换工具模块
+│   ├── __init__.py
+│   ├── main.py
+│   └── utils.py
+├── network_diagnostics_tool.py  # 网络诊断工具入口
+├── context_menu_tool.py  # 右键菜单管理器入口
+├── image/  # 工具截图目录
+├── .venv/  # 虚拟环境(自动创建)
+└── requirements.txt  # 依赖包列表</pre>
+        </div>
+    </section>
+
+    <!-- 如何添加新工具 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">如何添加新工具</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>如果您想为工具箱添加新的工具，请按照以下步骤操作：</p>
+                            <ol>
+                                <li>在根目录下创建新的工具模块目录，例如<code>new_tool/</code></li>
+                                <li>在新工具目录中创建必要的Python文件</li>
+                                <li>在<code>mytools.py</code>的<code>add_tools_to_list</code>方法中添加新工具的条目</li>
+                                <li>在<code>descriptions</code>字典中添加新工具的描述</li>
+                                <li>在<code>launch_selected_tool</code>方法中添加启动新工具的代码</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            工具箱无法启动
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>确保已安装Python并添加到系统PATH</li>
+                                <li>检查是否安装了tkinter库</li>
+                                <li>尝试使用管理员权限运行启动脚本</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            无法启动特定工具
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>检查工具所需的依赖包是否已安装</li>
+                                <li>查看控制台输出的错误信息</li>
+                                <li>确保工具的路径正确</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 贡献和许可 -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="section-title">贡献</h2>
+                    <p>欢迎贡献代码、报告问题或提出改进建议。请通过GitHub Issues或Pull Requests参与项目开发。</p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="section-title">许可</h2>
+                    <p>本项目使用MIT许可证。详见LICENSE文件。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="https://github.com/xhnoob/myTools" class="btn btn-outline-light me-2" target="_blank">
+                    <i class="fab fa-github me-2"></i>GitHub
+                </a>
+            </div>
+            <p class="mb-0">
+                作者：道相抖音@慈悲剪辑，技术问题点关注留言
+            </p>
+            <p class="mt-2">
+                <small>&copy; 2024 MyTools 工具箱. 保留所有权利。</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
