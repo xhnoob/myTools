@@ -1,0 +1,6 @@
+# 作者：道相抖音@慈悲剪辑，技术问题点关注留言
+# MyTools 工具箱依赖包列表
+# tkinter是Python标准库自带，不需要额外安装
+pywin32>=305; platform_system == "Windows"  # Windows API接口，用于环境变量管理器
+requests>=2.28.1  # HTTP请求库，用于网络诊断工具
+pillow>=9.2.0  # 图像处理库，用于格式转换工具 
